@@ -1,0 +1,2 @@
+docker run --name summarizer -p 8081:80 \
+--rm -it summarizer:v1.0.0

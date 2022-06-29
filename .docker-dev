@@ -1,0 +1,3 @@
+docker run --name summarizer -p 8081:80 \
+-v "/$(pwd -W):/home/site/wwwroot" \
+--rm -it summarizer:v1.0.0

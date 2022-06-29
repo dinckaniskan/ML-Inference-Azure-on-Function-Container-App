@@ -1,0 +1,6 @@
+.venv
+.test
+.vscode
+
+.docker*
+
