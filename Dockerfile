@@ -8,7 +8,7 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
 COPY requirements.txt /
 RUN pip install -r /requirements.txt
 
-COPY ./app/ /home/site/wwwroot
+COPY . /home/site/wwwroot
 COPY ./post_deployment /post_deployment 
 RUN ["chmod", "+x", "/post_deployment/run.sh"]
 
