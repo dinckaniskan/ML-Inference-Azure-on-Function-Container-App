@@ -20,9 +20,9 @@ data = {
 # url = 'https://sample-summarizer.azurewebsites.net/api/summarize_text'
 # url = 'https://sample-summarizer.azurewebsites.net/api/summarize_text?code=1-I0rwHSGonZeh2K4ylug2R4ngpRignuuZ1hRGalKhNtAzFuZIJZlg=='
 
-url = 'http://localhost:8081/api/summarize_text'
+# url = 'http://localhost:8081/api/summarize_text'
 # url = 'https://summarizer-sample.azurewebsites.net/api/summarize_text'
-# url = 'https://summarizer-sample-2.azurewebsites.net/api/summarize_text'
+url = 'https://summarizer-246370688.azurewebsites.net/api/summarize_text'
 r = requests.get(url, json=data)
 r = r.text
 print(r)

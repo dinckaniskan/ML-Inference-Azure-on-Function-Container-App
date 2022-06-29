@@ -8,7 +8,7 @@ export RG=industry$uniqueid \
        APP_SERVICE_PLAN_SKU=P3V2 \
        FUNCTION_APP_NAME=summarizer-$uniqueid \
        IMAGE_NAME=summarizer \
-       CONTAINER_REGISTRY_REF=$CONTAINER_REGISTRY_NAME.azurecr.io/$IMAGE_NAME
+       CONTAINER_REGISTRY_REFERENCE=$CONTAINER_REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest
 
 
 echo "Create Azure Resource Group: $RG"
@@ -39,5 +39,6 @@ az functionapp plan create --resource-group $RG --name $APP_SERVICE_PLAN_NAME --
 
 
 echo "Create Function App: $FUNCTION_APP_NAME"
-az functionapp create --name $FUNCTION_APP_NAME --storage-account $STORAGE_ACCOUNT_NAME --resource-group $RG --plan $APP_SERVICE_PLAN_NAME --deployment-container-image-name $CONTAINER_REFERENCE
+az functionapp create --name $FUNCTION_APP_NAME --storage-account $STORAGE_ACCOUNT_NAME --resource-group $RG --plan $APP_SERVICE_PLAN_NAME --deployment-container-image-name $CONTAINER_REGISTRY_REFERENCE
 az functionapp config appsettings set --name $FUNCTION_APP_NAME --resource-group $RG --settings AzureWebJobsStorage=$CONNECTION_STRING
+az functionapp cors add --name $FUNCTION_APP_NAME --resource-group $RG --allowed-origins "*"
